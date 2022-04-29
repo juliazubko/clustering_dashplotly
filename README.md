@@ -1,5 +1,5 @@
 # clustering_dashplotly_oop
-### Clusters the data and makes a dashboard with some bacis exploratory plots 
+### Clusters the data and makes a dashboard with some basic exploratory plots 
 ### [UMAP, DBSCAN,  Agglomerative, Dash,  Plotly]
 
 ![main](https://user-images.githubusercontent.com/102211232/165947985-082f0488-a410-4d05-bc47-29d24bb83fde.png)
