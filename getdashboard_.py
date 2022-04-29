@@ -44,10 +44,10 @@ class GetDashboard:
         # >> ROW 2: bar- and pie chart per chosen model+cluster number combination,
         #           dynamically changeable on the callback.
         #
-        # will use 3 callback functions: 1 -- to change dropdown menu accordingly to
+        # will use 2 callback functions: 1 -- to change dropdown menu accordingly to
         # chosen radioItem (algorithm), as number of clusters may vary för each clustering method;
-        # 2 -- to update barchart accordingly to the chosen model+cluster number combination;
-        # 3 -- to update piechart on same basis.
+        # 2 -- to update bar & piechart accordingly to the chosen model+cluster number combination;
+        
 
         # first row and its components (contains 3 columns / containers for one individual graph and styling)
         content_first_row = dbc.Row(
@@ -78,10 +78,10 @@ class GetDashboard:
                                 {round(metrics.silhouette_score(self.embedding, self.dblabels), 3)}'''),
                     html.Div(
                         f'''Davies Bouldin score: 
-                                {round(metrics.davies_bouldin_score(self.embedding, self.dblabels), 3)}'''),
+                               {round(metrics.davies_bouldin_score(self.embedding, self.dblabels), 3)}'''),
                     html.Div(
                         f'''Calinski Harabasz score: 
-                                     {round(metrics.calinski_harabasz_score(self.embedding, self.dblabels), 3)}'''),
+                               {round(metrics.calinski_harabasz_score(self.embedding, self.dblabels), 3)}'''),
                     dcc.Graph(id='dbscan_clusters',
                               figure=px.scatter(self.embedding,
                                                 x=self.embedding[:, 0],
@@ -99,10 +99,10 @@ class GetDashboard:
                     html.Div(f'''Nuber of clusters: {len(set(self.aggl_labels))}'''),
                     html.Div(
                         f'''Silhouette score: 
-                                {round(metrics.silhouette_score(self.embedding, self.aggl_labels), 3)}'''),
+                               {round(metrics.silhouette_score(self.embedding, self.aggl_labels), 3)}'''),
                     html.Div(
                         f'''Davies Bouldin score: 
-                                {round(metrics.davies_bouldin_score(self.embedding, self.aggl_labels), 3)}'''),
+                              {round(metrics.davies_bouldin_score(self.embedding, self.aggl_labels), 3)}'''),
                     html.Div(
                         f'''Calinski Harabasz score: 
                              {round(metrics.calinski_harabasz_score(self.embedding, self.aggl_labels), 3)}'''),
@@ -155,7 +155,7 @@ class GetDashboard:
 
             ])])
 
-        # put everything together: the 'content' will be later put in the layout
+        # put everything together: the 'content' will be later put in the app.layout()
         content = html.Div([
             html.H2('Clustered Data Exploratory Plots',
                     style={'textAlign': 'center',
@@ -184,14 +184,14 @@ class GetDashboard:
                 value = '(choose from dropdown)'
             return options, value
 
-        # callback 2: update bar plot
+        # callback 2: update bar & piechart plots 
         @self.new_app.callback(
             Output('bar_plot_clustered', 'figure'),
             Output('pie_chart_clustered', 'figure'),
             Input('clusters_dropdown', 'value'),
             Input('clusterer_algorithm', 'value')
         )
-        def update_barplot_on_callback(selected_clus_num, selected_alg):
+        def update_theplots_on_callback(selected_clus_num, selected_alg):
             algorithms = ['DBSCAN', 'Agglomerative']
             dff = pd.DataFrame(self.df.groupby(selected_alg, as_index=False).mean())
             dff = dff[dff[selected_alg] == selected_clus_num]
@@ -216,7 +216,8 @@ class GetDashboard:
     #################
     # class methods #
     #################
-    # tis to get 2D UMAP embedding
+    
+    # this to get 2D UMAP embedding
     def _umap_embedding(self):
         reducer = umap.UMAP(n_neighbors=10, min_dist=.2)
         self.embedding = reducer.fit_transform(self.df1)
