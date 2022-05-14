@@ -24,7 +24,7 @@
    > - 2 callback-changeable plots: bar- and donut chart (displays feature distribution per 
    chosen algorithm,  per chosen cluster) 
    
-   ![results](https://user-images.githubusercontent.com/102211232/165948191-928ee8fc-e7d0-4c08-b906-856bca43e53e.png) 
+  ![Namnlös](https://user-images.githubusercontent.com/102211232/168421953-11a07df7-098a-4e97-a83f-9bda3b1ba6e3.png)
    
    
    
