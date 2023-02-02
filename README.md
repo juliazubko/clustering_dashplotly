@@ -1,5 +1,5 @@
 # clustering_dashplotly
-### Clusters the data and makes a dashboard with some basic exploratory plots 
+### Clusters the data and makes a dashboard with some basic plots 
 ### [UMAP, DBSCAN,  Agglomerative, Dash,  Plotly] 
 ### *school assignment*
 
@@ -12,14 +12,14 @@
  -  Makes 2D UMAP embedding;
    
   - Performs DBSCAN and AgglomerativeClusterer hyperparameter tuning
-   (for-loops, => suitable for rather small datasets);
+   (for-loops);
    
-  - Runs clusterers on the data, appends obtained cluster labels to the original
+  - Runs DBSCAN and AgglomerativeClusterer on the data, appends obtained cluster labels to the original
    dataframe;
    
-- Puts everything together into a simple/ pretty basic/ Dash Plotly dashboard 
-   > - 3 exploratory scatterplots (UMAP data embedding, Dbscan results on the embedding, 
-   Agglomerative results on the embedding) with some clustering evaluation metrics displayed
+ - Plots the results (basic Dash Plotly dashboard)
+   > - 3 exploratory scatterplots (UMAP data embedding, Dbscan clustering results on the embedding, 
+   Agglomerative clustering results on the embedding) with some clustering evaluation metrics displayed
    (Silhouette, Davis-Bouldin, Calinski-Harabasz)
    > - 2 callback-changeable plots: bar- and donut chart (displays feature distribution per 
    chosen algorithm,  per chosen cluster) 
