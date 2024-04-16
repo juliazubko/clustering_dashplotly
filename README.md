@@ -2,6 +2,7 @@
 ### Clusters the data and makes a dashboard with some basic plots 
 ### [UMAP, DBSCAN,  Agglomerative, Dash,  Plotly] 
 (Year 1 Data Science(HVE) course assignment 2022) 
+
 (Addressing outdated logic in this code to improve efficiency. 
 Refactoring in progress to address god object concerns, 
 inefficient loops in data processing, enhance modularity, etc) 
