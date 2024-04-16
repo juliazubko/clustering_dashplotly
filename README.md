@@ -1,7 +1,10 @@
 # clustering_dashplotly
 ### Clusters the data and makes a dashboard with some basic plots 
 ### [UMAP, DBSCAN,  Agglomerative, Dash,  Plotly] 
-(Year 1 Data Science(HVE) course assignment 2022)
+(Year 1 Data Science(HVE) course assignment 2022) 
+(Addressing outdated logic in this code to improve efficiency. 
+Refactoring in progress to address god object concerns, 
+inefficient loops in data processing, enhance modularity, etc) 
 
 ![main](https://user-images.githubusercontent.com/102211232/165947985-082f0488-a410-4d05-bc47-29d24bb83fde.png)
 
